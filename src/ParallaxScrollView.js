@@ -14,6 +14,7 @@ import { USER, FACEBOOK_LIST, SLACK_LIST, GENERIC_LIST, SCREEN_WIDTH, SCREEN_HEI
 
 import LinearGradient from 'react-native-linear-gradient';
 import GambiarraTirarFundoDegrade from "../../../src/components/GambiarraTirarFundoDegrade";
+import { primaryColor, secondaryColor } from "../../../src/theme/Contants.js";
 
 const ScrollViewPropTypes = ScrollView.propTypes;
 
@@ -254,7 +255,7 @@ export default class ParallaxScrollView extends Component {
 
         return (
             <LinearGradient
-                colors={['#5f4b8b', '#c6579e']}
+                colors={[primaryColor, secondaryColor]}
                 style={{flex: 1, minHeight: '100%', minWidth: '100%',zIndex: 0}}
                 start={{x: 0, y: 0}}
                 end={{x: 1.2, y: 0.3}}
