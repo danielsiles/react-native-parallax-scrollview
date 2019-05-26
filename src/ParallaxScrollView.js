@@ -7,14 +7,15 @@ import {
     ScrollView,
     StyleSheet,
     TouchableOpacity,
-    ImageBackground
+    ImageBackground,
+    SafeAreaView
 } from 'react-native';
 
 import { USER, FACEBOOK_LIST, SLACK_LIST, GENERIC_LIST, SCREEN_WIDTH, SCREEN_HEIGHT, DEFAULT_WINDOW_MULTIPLIER, DEFAULT_NAVBAR_HEIGHT } from './constants';
 
 import LinearGradient from 'react-native-linear-gradient';
 import GambiarraTirarFundoDegrade from "../../../src/components/GambiarraTirarFundoDegrade";
-import { primaryColor, secondaryColor } from "../../../src/theme/Contants.js";
+import { primaryColor, secondaryColor } from "../../../src/theme/Constants.js";
 
 const ScrollViewPropTypes = ScrollView.propTypes;
 
@@ -145,13 +146,13 @@ export default class ParallaxScrollView extends Component {
                     backgroundColor: scrollY.interpolate({
                         inputRange: [-windowHeight, windowHeight * DEFAULT_WINDOW_MULTIPLIER, windowHeight * 0.8],
                         outputRange: ['transparent', 'transparent', navBarColor || 'rgba(0, 0, 0, 1.0)']
-                    })
+                    }),
+                    alignItems: 'center'
                 }}
             >
-                {<View
+                {<SafeAreaView
                     style={{
                         flex: 1,
-                        marginTop: 20,
                         justifyContent: 'center',
                         alignItems: 'flex-start'
                     }}
@@ -165,23 +166,21 @@ export default class ParallaxScrollView extends Component {
                         style={styles.icon}
                     />
                   </TouchableOpacity>
-                </View>
+                </SafeAreaView>
                 }
-              <View
+              <SafeAreaView
                   style={{
                       flex: 5,
-                      marginTop: 20,
                       justifyContent: 'center',
                       alignItems: 'center',
                       alignSelf: 'center'
                   }}
               >
                   {this.renderNavBarTitle()}
-              </View>
-                {<View
+              </SafeAreaView>
+                {<SafeAreaView
                     style={{
                         flex: 1,
-                        marginTop: 20,
                         justifyContent: 'center',
                         alignItems: 'flex-end'
                     }}
@@ -195,7 +194,7 @@ export default class ParallaxScrollView extends Component {
                         style={styles.icon}
                     />
                   </TouchableOpacity>
-                </View>
+                </SafeAreaView>
                 }
             </Animated.View>
         );
